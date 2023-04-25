@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="650.0" prefWidth="1080.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ordersfx.StatisticsController">
+    <children>
+        <Button fx:id="allPurchaseOrders" layoutX="603.0" layoutY="52.0" mnemonicParsing="false" text="Все заявки" />
+        <Button fx:id="readExcel" layoutX="20.0" layoutY="15.0" mnemonicParsing="false" text="Загрузить файл" />
+        <GridPane layoutX="20.0" layoutY="114.0" prefHeight="505.0" prefWidth="1041.0" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="114.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <TabPane>
+                    <tabs>
+                        <Tab text="Статистика заявок">
+                            <content>
+                                <TableView fx:id="tableStats" prefHeight="505.0" prefWidth="732.0">
+                                    <columns>
+                                        <TableColumn fx:id="managerStatsColumn" prefWidth="229.0" text="Ответственный менеджер" />
+                                        <TableColumn fx:id="countStatsColumn" prefWidth="163.0" text="Кол-во по полю Заявка" />
+                                        <TableColumn fx:id="countOrdersStatsColumn" prefWidth="189.0" text="Кол-во в Заказе Поставщику" />
+                                        <TableColumn fx:id="notPostedStatsColumn" prefWidth="121.0" text="Неотработано" />
+                                    </columns>
+                                </TableView>
+                            </content>
+                        </Tab>
+                  <Tab text="Сводная таблица по площадкам">
+                     <content>
+                        <TableView fx:id="pivotTable" prefHeight="476.0" prefWidth="535.0">
+                           <columns>
+                              <TableColumn fx:id="squarePivotColumn" prefWidth="185.0" text="Площадка" />
+                              <TableColumn fx:id="numberOrderLateColumn" minWidth="0.0" prefWidth="0.0" text="Номер заявки" />
+                              <TableColumn fx:id="purchaseOrdersPivotColumn" prefWidth="83.0" text="Всего заявок" />
+                              <TableColumn fx:id="ordersPivotColumn" prefWidth="50.0" text="Заказы" />
+                              <TableColumn fx:id="completePivotColumn" minWidth="9.0" prefWidth="73.0" text="Выполнено" />
+                              <TableColumn fx:id="goingPivotColumn" prefWidth="49.0" text="В пути" />
+                              <TableColumn fx:id="inWorkPivotColumn" minWidth="0.0" prefWidth="62.0" text="В работе" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                        <Tab text="Неотработанные заявки">
+                            <content>
+                                <TableView fx:id="tableNotPosted" prefHeight="476.0" prefWidth="535.0">
+                                    <columns>
+                              <TableColumn fx:id="dateNotpostedColumn" prefWidth="148.0" text="Дата" />
+                                        <TableColumn fx:id="purchaseOrderNotpostedColumn" prefWidth="212.0" text="Заявка" />
+                              <TableColumn fx:id="squareNotPostedColumn" prefWidth="120.0" text="Площадка" />
+                                        <TableColumn fx:id="itemNameNotpostedColumn" prefWidth="158.0" text="Номенклатура" />
+                                        <TableColumn fx:id="countNotpostedColumn" prefWidth="92.0" text="Кол-во" />
+                                        <TableColumn fx:id="unitNotpostedColumn" prefWidth="53.0" text="Ед. изм." />
+                                        <TableColumn fx:id="commentNotpostedColumn" prefWidth="157.0" text="Комментарий" />
+                              <TableColumn fx:id="managerNorPostedColumn" prefWidth="180.0" text="Ответственный менеджер" />
+                                    </columns>
+                                </TableView>
+                            </content>
+                        </Tab>
+                        <Tab text="Опоздания">
+                            <content>
+                                <TableView fx:id="tableLate" prefHeight="476.0" prefWidth="535.0">
+                                    <columns>
+                              <TableColumn fx:id="dateLateColumn" prefWidth="180.0" text="Дата" />
+                                        <TableColumn fx:id="purchaseOrderLateColumn" prefWidth="180.0" text="Заявка" />
+                              <TableColumn fx:id="squareLateColumn" prefWidth="120.0" text="Площадка" />
+                                        <TableColumn fx:id="itemNameLateColumn" prefWidth="158.0" text="Номенклатура" />
+                                        <TableColumn fx:id="countLateColumn" prefWidth="92.0" text="Кол-во" />
+                                        <TableColumn fx:id="unitLateColumn" prefWidth="53.0" text="Ед. изм." />
+                                        <TableColumn fx:id="commentLateColumn" prefWidth="157.0" text="Комментарий" />
+                              <TableColumn fx:id="managerLateColumn" prefWidth="180.0" text="Ответственный менеджер" />
+                                    </columns>
+                                </TableView>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </children>
+        </GridPane>
+        <Label layoutX="246.0" layoutY="12.0" prefHeight="33.0" prefWidth="42.0" text="Поиск" />
+        <TextField fx:id="keywoordTextField" layoutX="295.0" layoutY="17.0" prefHeight="26.0" prefWidth="382.0" promptText="Text..." />
+        <Button fx:id="writeExcel" layoutX="133.0" layoutY="16.0" mnemonicParsing="false" text="Сохранить файл" />
+        <Button fx:id="notPostedButton" layoutX="688.0" layoutY="18.0" mnemonicParsing="false" text="Не размещнные" />
+        <Button fx:id="lateButton" layoutX="802.0" layoutY="18.0" mnemonicParsing="false" text="Опоздания" />
+        <Button fx:id="returnButton" layoutX="1004.0" layoutY="18.0" mnemonicParsing="false" text="Назад" />
+        <Button fx:id="azTwentyOneButton" layoutX="440.0" layoutY="52.0" mnemonicParsing="false" text="АЗ 2021" />
+        <Button fx:id="azTwentyTwoButton" layoutX="367.0" layoutY="52.0" mnemonicParsing="false" text="АЗ 2022" />
+        <Button fx:id="azTwentyThreeButton" layoutX="295.0" layoutY="52.0" mnemonicParsing="false" text="АЗ 2023" />
+        <Button fx:id="twentyThreeButton" layoutX="511.0" layoutY="52.0" mnemonicParsing="false" text="2023" />
+        <Button fx:id="krButton" layoutX="565.0" layoutY="52.0" mnemonicParsing="false" text="КР" />
+      <Button fx:id="writeExcelPivot" layoutX="133.0" layoutY="50.0" mnemonicParsing="false" text="Сохранить файл свод" />
+      <Button fx:id="writeExcelStats" layoutX="133.0" layoutY="85.0" mnemonicParsing="false" text="Сохранить файл статистика" />
+    </children>
+</AnchorPane>

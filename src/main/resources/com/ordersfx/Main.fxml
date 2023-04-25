@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="1080.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ordersfx.MainController">
+    <children>
+        <Button fx:id="allPurchaseOrdersButton" layoutX="331.0" layoutY="214.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Все заявки таблица">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="managersButton" layoutX="558.0" layoutY="214.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Статистика ">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+    </children>
+</AnchorPane>
