@@ -2,8 +2,6 @@ package com.ordersfx.util;
 
 import com.ordersfx.service.PurchaseOrder;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileOutputStream;

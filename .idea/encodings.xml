@@ -3,9 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/com/ordersfx/logo-01.png" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/com/ordersfx/logo-01.png" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/com/ordersfx/logo-ru.jpg" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/com/ordersfx/РУСАГО_logo-01.png" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/ordersfx/logo-01.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/ordersfx/logo-ru.jpg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/ordersfx/РУСАГО_logo-01.png" charset="UTF-8" />
   </component>
 </project>

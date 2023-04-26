@@ -1,6 +1,5 @@
 package com.ordersfx.util;
 
-import com.ordersfx.service.PurchaseOrder;
 import com.ordersfx.service.Stats;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -8,7 +7,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.util.Set;
 
 public class WriteExcelFileStats {
 
