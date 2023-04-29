@@ -15,9 +15,7 @@ public class PurchaseOrderService {
     private Set<PurchaseOrder> currentList = new HashSet<>();
 
     public PurchaseOrderService(Collection<PurchaseOrder> purchaseOrder) {
-        this.purchaseOrderSet = new HashSet<>(purchaseOrder);
-        purchaseOrderSet.stream().filter(this::isCanceled)
-                .collect(Collectors.toCollection(HashSet::new));
+        this.purchaseOrderSet = new HashSet<>(purchaseOrder.stream().filter(this::isCanceled).toList());
     }
 
     public PurchaseOrderService() {

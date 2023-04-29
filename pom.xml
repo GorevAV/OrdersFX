@@ -11,7 +11,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.version>5.9.1</junit.version>      </properties>
+    <junit.version>5.9.1</junit.version>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -35,7 +36,7 @@
       <version>5.2.3</version>
     </dependency>
 
-                                    
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
@@ -52,16 +53,35 @@
   </dependencies>
 
   <build>
-        <plugins>
-            <plugin>
+    <plugins>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.10.1</version>
         <configuration>
-          <source>17</source>
-          <target>17</target>
+          <source>19</source>
+          <target>19</target>
         </configuration>
-            </plugin>
+      </plugin>
+      <plugin>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.4.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>com.ordersfx.Main</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-maven-plugin</artifactId>
@@ -71,7 +91,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.ordersfx/com.ordersfx.Starter</mainClass>
+              <mainClass>com.ordersfx.Main</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
@@ -82,6 +102,6 @@
           </execution>
         </executions>
       </plugin>
-          </plugins>
+    </plugins>
   </build>
 </project>

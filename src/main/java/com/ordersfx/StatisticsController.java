@@ -335,8 +335,7 @@ public class StatisticsController {
             statsList.add(new Stats(manager, purchaseOrdersCount, orders, notPosted));
         }
         statList = statsList;
-        ObservableList<Stats> observableList = FXCollections.observableArrayList(statsList);
-        return observableList;
+        return FXCollections.observableArrayList(statsList);
     }
 
     private ObservableList<StatsPivot> getPivotStats() {
@@ -377,9 +376,25 @@ public class StatisticsController {
             }
             statsPivotList.add(new StatsPivot(square, purchaseOrdersCount, completedOrders, orders, going, inWork));
         }
+        statsPivotList.add(getTotalStatsPivot(statsPivotList));
         statPivotList = statsPivotList;
-        ObservableList<StatsPivot> observableList = FXCollections.observableArrayList(statsPivotList);
-        return observableList;
+        return FXCollections.observableArrayList(statsPivotList);
+    }
+
+    private StatsPivot getTotalStatsPivot(List<StatsPivot> statsPivotList) {
+        int purchaseOrdersCount = 0;
+        int orders = 0;
+        int going = 0;
+        int inWork = 0;
+        int completedOrders = 0;
+        for (StatsPivot statsPivot : statsPivotList) {
+            purchaseOrdersCount += statsPivot.getPurchaseOrders();
+            orders += statsPivot.getOrders();
+            going += statsPivot.getGoing();
+            inWork += statsPivot.getInWork();
+            completedOrders += statsPivot.getCompletedOrders();
+        }
+        return new StatsPivot("Total", purchaseOrdersCount, completedOrders, orders, going, inWork);
     }
 
     private void fillTableNotPosted() {
