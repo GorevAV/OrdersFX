@@ -4,13 +4,13 @@ package com.ordersfx.service;
 public class Stats {
 
     private String manager;
-    private Integer purchaseOrders;
+    private int purchaseOrders;
 
-    private Integer orders;
+    private int orders;
 
-    private Integer notPosted;
+    private int notPosted;
 
-    public Stats(String manager, Integer purchaseOrders, Integer orders, Integer notPosted) {
+    public Stats(String manager, int purchaseOrders, int orders, int notPosted) {
         this.manager = manager;
         this.purchaseOrders = purchaseOrders;
         this.orders = orders;
@@ -25,27 +25,27 @@ public class Stats {
         this.manager = manager;
     }
 
-    public Integer getPurchaseOrders() {
+    public int getPurchaseOrders() {
         return purchaseOrders;
     }
 
-    public void setPurchaseOrders(Integer purchaseOrders) {
+    public void setPurchaseOrders(int purchaseOrders) {
         this.purchaseOrders = purchaseOrders;
     }
 
-    public Integer getOrders() {
+    public int getOrders() {
         return orders;
     }
 
-    public void setOrders(Integer orders) {
+    public void setOrders(int orders) {
         this.orders = orders;
     }
 
-    public Integer getNotPosted() {
+    public int getNotPosted() {
         return notPosted;
     }
 
-    public void setNotPosted(Integer notPosted) {
+    public void setNotPosted(int notPosted) {
         this.notPosted = notPosted;
     }
 }

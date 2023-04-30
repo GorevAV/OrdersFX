@@ -4,16 +4,16 @@ package com.ordersfx.service;
 public class StatsPivot {
 
     private String square;
-    private Integer purchaseOrders;
+    private int purchaseOrders;
 
-    private Integer completedOrders;
-    private Integer orders;
+    private int completedOrders;
+    private int orders;
 
-    private Integer going;
+    private int going;
 
-    private Integer inWork;
+    private int inWork;
 
-    public StatsPivot(String square, Integer purchaseOrders, Integer completedOrders, Integer orders, Integer going, Integer inWork) {
+    public StatsPivot(String square, int purchaseOrders, int completedOrders, int orders, int going, int inWork) {
         this.square = square;
         this.purchaseOrders = purchaseOrders;
         this.completedOrders = completedOrders;
@@ -30,43 +30,43 @@ public class StatsPivot {
         this.square = square;
     }
 
-    public Integer getPurchaseOrders() {
+    public int getPurchaseOrders() {
         return purchaseOrders;
     }
 
-    public void setPurchaseOrders(Integer purchaseOrders) {
+    public void setPurchaseOrders(int purchaseOrders) {
         this.purchaseOrders = purchaseOrders;
     }
 
-    public Integer getCompletedOrders() {
+    public int getCompletedOrders() {
         return completedOrders;
     }
 
-    public void setCompletedOrders(Integer completedOrders) {
+    public void setCompletedOrders(int completedOrders) {
         this.completedOrders = completedOrders;
     }
 
-    public Integer getOrders() {
+    public int getOrders() {
         return orders;
     }
 
-    public void setOrders(Integer orders) {
+    public void setOrders(int orders) {
         this.orders = orders;
     }
 
-    public Integer getGoing() {
+    public int getGoing() {
         return going;
     }
 
-    public void setGoing(Integer going) {
+    public void setGoing(int going) {
         this.going = going;
     }
 
-    public Integer getInWork() {
+    public int getInWork() {
         return inWork;
     }
 
-    public void setInWork(Integer inWork) {
+    public void setInWork(int inWork) {
         this.inWork = inWork;
     }
 }

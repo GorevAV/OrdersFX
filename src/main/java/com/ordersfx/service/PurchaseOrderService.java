@@ -7,6 +7,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Comparator;
 import java.util.stream.Collectors;
 
 public class PurchaseOrderService {
@@ -180,7 +181,8 @@ public class PurchaseOrderService {
     }
 
     public Set<PurchaseOrder> getCurrentList() {
-        return currentList;
+        return currentList.stream().sorted(Comparator.comparing(PurchaseOrder::getNumberApplication))
+                .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     public Set<PurchaseOrder> getPurchaseOrderSet() {

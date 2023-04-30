@@ -1,9 +1,8 @@
 package com.ordersfx.util;
 
 import com.ordersfx.service.PurchaseOrder;
-import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.eventusermodel.XSSFReader;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
@@ -13,9 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ReadExcelFile {
+public class ReadExcelFileMP {
 
-    public ReadExcelFile() {
+
+    public ReadExcelFileMP() {
     }
 
     public List<PurchaseOrder> readExcel(String path) throws IOException {
@@ -45,18 +45,18 @@ public class ReadExcelFile {
         for (int i = 1; i <= sheet.getLastRowNum(); i++) {
             Row row = sheet.getRow(i);
             PurchaseOrder purchaseOrder = new PurchaseOrder(
-                    formatter.formatCellValue(row.getCell(requiredHeaders.get("Дата"))),
+                    formatter.formatCellValue(row.getCell(requiredHeaders.get("Дата заявки"))),
                     formatter.formatCellValue(row.getCell(requiredHeaders.get("Номер заявки"))),
                     formatter.formatCellValue(row.getCell(requiredHeaders.get("Организация"))),
                     formatter.formatCellValue(row.getCell(requiredHeaders.get("Площадка"))),
-                    formatter.formatCellValue(row.getCell(requiredHeaders.get("Ответственный"))),
+                    formatter.formatCellValue(row.getCell(requiredHeaders.get("Инициатор"))),
                     formatter.formatCellValue(row.getCell(requiredHeaders.get("Номенклатура"))),
-                    formatter.formatCellValue(row.getCell(requiredHeaders.get("КР"))),
+                    "",
                     formatter.formatCellValue(row.getCell(requiredHeaders.get("Количество"))),
                     formatter.formatCellValue(row.getCell(requiredHeaders.get("Единица измерения"))),
-                    formatter.formatCellValue(row.getCell(requiredHeaders.get("Контрагент"))),
+                    "",
                     formatter.formatCellValue(row.getCell(requiredHeaders.get("Ответственный менеджер"))),
-                    formatter.formatCellValue(row.getCell(requiredHeaders.get("Дата ПП"))),
+                    formatter.formatCellValue(row.getCell(requiredHeaders.get("Дата планового прихода"))),
                     formatter.formatCellValue(row.getCell(requiredHeaders.get("ПТУ"))),
                     formatter.formatCellValue(row.getCell(requiredHeaders.get("Дата ПТУ"))),
                     formatter.formatCellValue(row.getCell(requiredHeaders.get("Заказ поставщику"))),

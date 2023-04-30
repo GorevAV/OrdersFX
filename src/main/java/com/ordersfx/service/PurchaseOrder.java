@@ -51,35 +51,19 @@ public class PurchaseOrder {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PurchaseOrder that = (PurchaseOrder) o;
-        return Objects.equals(date, that.date) && Objects.equals(numberApplication, that.numberApplication) && Objects.equals(square, that.square) && Objects.equals(customer, that.customer) && Objects.equals(itemName, that.itemName) && Objects.equals(count, that.count) && Objects.equals(category, that.category) && Objects.equals(comment, that.comment);
+        return Objects.equals(date, that.date)
+                && Objects.equals(numberApplication, that.numberApplication)
+                && Objects.equals(square, that.square)
+                && Objects.equals(customer, that.customer)
+                && Objects.equals(itemName, that.itemName)
+                && Objects.equals(count, that.count)
+                && Objects.equals(category, that.category)
+                && Objects.equals(comment, that.comment);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(date, numberApplication, square, customer, itemName, count, category, comment);
-    }
-
-    @Override
-    public String toString() {
-        return "Заявка{" +
-                "date='" + date + '\'' +
-                ", numberApplication='" + numberApplication + '\'' +
-                ", organisation='" + organisation + '\'' +
-                ", square='" + square + '\'' +
-                ", customer='" + customer + '\'' +
-                ", itemName='" + itemName + '\'' +
-                ", kr='" + kr + '\'' +
-                ", count='" + count + '\'' +
-                ", unit='" + unit + '\'' +
-                ", provider='" + provider + '\'' +
-                ", manager='" + manager + '\'' +
-                ", datePP='" + datePP + '\'' +
-                ", pty='" + pty + '\'' +
-                ", datePty='" + datePty + '\'' +
-                ", order='" + order + '\'' +
-                ", category='" + category + '\'' +
-                ", comment='" + comment + '\'' +
-                '}';
     }
 
     public String getDate() {

@@ -1,10 +1,7 @@
 package com.ordersfx;
 
 import com.ordersfx.service.*;
-import com.ordersfx.util.ReadExcelFile;
-import com.ordersfx.util.WriteExcelFileAll;
-import com.ordersfx.util.WriteExcelFileStats;
-import com.ordersfx.util.WriteExcelFileStatsPivot;
+import com.ordersfx.util.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,10 +16,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class StatisticsController {
 
@@ -103,6 +104,9 @@ public class StatisticsController {
     private Button readExcel;
 
     @FXML
+    private Button readExcelMP;
+
+    @FXML
     private Button returnButton;
 
     @FXML
@@ -170,6 +174,7 @@ public class StatisticsController {
 
         returnButton.setOnAction(event -> {
             returnButton.getScene().getWindow().hide();
+            clearAppFromMemory();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("Main.fxml"));
             try {
@@ -192,6 +197,22 @@ public class StatisticsController {
                     readFile.addAll(readExcelFile.readExcel(path));
                 } else {
                     readFile = readExcelFile.readExcel(path);
+                }
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            purchaseOrderService = new PurchaseOrderService(readFile);
+        });
+
+        readExcelMP.setOnAction(e -> {
+            File file = new FileChooser().showOpenDialog(new Stage());
+            String path = file.getAbsolutePath();
+            try {
+                ReadExcelFileMP readExcelMP = new ReadExcelFileMP();
+                if (readFile != null) {
+                    readFile.addAll(readExcelMP.readExcel(path));
+                } else {
+                    readFile = readExcelMP.readExcel(path);
                 }
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
@@ -374,7 +395,7 @@ public class StatisticsController {
                     completedOrders = temp.getValue();
                 }
             }
-            statsPivotList.add(new StatsPivot(square, purchaseOrdersCount, completedOrders, orders, going, inWork));
+           statsPivotList.add(new StatsPivot(square, purchaseOrdersCount, completedOrders, orders, going, inWork));
         }
         statsPivotList.add(getTotalStatsPivot(statsPivotList));
         statPivotList = statsPivotList;
@@ -453,4 +474,14 @@ public class StatisticsController {
         });
     }
 
+    private void clearAppFromMemory() {
+        List<Window> windows = Window.getWindows();
+        for (Window window : windows) {
+            if (window instanceof Stage) {
+                Stage stage = (Stage) window;
+                stage.close();
+            }
+        }
+        System.gc();
+    }
 }

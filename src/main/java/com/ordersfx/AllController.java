@@ -3,6 +3,7 @@ package com.ordersfx;
 import com.ordersfx.service.PurchaseOrder;
 import com.ordersfx.service.PurchaseOrderService;
 import com.ordersfx.util.ReadExcelFile;
+import com.ordersfx.util.ReadExcelFileMP;
 import com.ordersfx.util.WriteExcelFileAll;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.File;
 import java.io.IOException;
@@ -96,6 +98,9 @@ public class AllController {
     private Button readExcel;
 
     @FXML
+    private Button readExcelMP;
+
+    @FXML
     private Button writeExcel;
 
     @FXML
@@ -137,6 +142,22 @@ public class AllController {
             }
             purchaseOrderService = new PurchaseOrderService(readFile);
         });
+
+        readExcelMP.setOnAction(e -> {
+            File file = new FileChooser().showOpenDialog(new Stage());
+            String path = file.getAbsolutePath();
+            try {
+                ReadExcelFileMP readExcelMP = new ReadExcelFileMP();
+                if (readFile != null) {
+                    readFile.addAll(readExcelMP.readExcel(path));
+                } else {
+                    readFile = readExcelMP.readExcel(path);
+                }
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            purchaseOrderService = new PurchaseOrderService(readFile);
+        });
         fillTable();
 
         writeExcel.setOnAction(e -> {
@@ -169,6 +190,7 @@ public class AllController {
 
         returnButton.setOnAction(actionEvent -> {
             returnButton.getScene().getWindow().hide();
+            clearAppFromMemory();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("Main.fxml"));
             try {
@@ -262,6 +284,17 @@ public class AllController {
             //set the new max-wight with some extra space
             column.setPrefWidth(max + 10.0d);
         });
+    }
+
+    private void clearAppFromMemory() {
+        List<Window> windows = Window.getWindows();
+        for (Window window : windows) {
+            if (window instanceof Stage) {
+                Stage stage = (Stage) window;
+                stage.close();
+            }
+        }
+        System.gc();
     }
 
 }

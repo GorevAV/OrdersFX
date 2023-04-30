@@ -56,5 +56,6 @@
       <Button fx:id="azTwentyThreeButton" layoutX="295.0" layoutY="52.0" mnemonicParsing="false" text="АЗ 2023" />
       <Button fx:id="twentyThreeButton" layoutX="511.0" layoutY="52.0" mnemonicParsing="false" text="2023" />
       <Button fx:id="krButton" layoutX="565.0" layoutY="52.0" mnemonicParsing="false" text="КР" />
+      <Button fx:id="readExcelMP" layoutX="20.0" layoutY="52.0" mnemonicParsing="false" text="Загрузить файл МПРА" />
     </children>
 </AnchorPane>

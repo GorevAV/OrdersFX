@@ -92,4 +92,5 @@ public class StatsPivotService {
     public boolean isCanceled(PurchaseOrder purchaseOrder) {
         return !purchaseOrder.getComment().toLowerCase().contains("отмен");
     }
+
 }
