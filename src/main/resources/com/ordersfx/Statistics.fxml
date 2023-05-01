@@ -92,8 +92,8 @@
         <Label layoutX="313.0" layoutY="11.0" prefHeight="33.0" prefWidth="42.0" text="Поиск" />
         <TextField fx:id="keywoordTextField" layoutX="362.0" layoutY="18.0" prefHeight="26.0" prefWidth="382.0" promptText="Text..." />
         <Button fx:id="writeExcel" layoutX="166.0" layoutY="15.0" mnemonicParsing="false" text="Сохранить файл" />
-        <Button fx:id="notPostedButton" layoutX="758.0" layoutY="18.0" mnemonicParsing="false" text="Не размещнные" />
-        <Button fx:id="lateButton" layoutX="873.0" layoutY="18.0" mnemonicParsing="false" text="Опоздания" />
+        <Button fx:id="notPostedButton" layoutX="758.0" layoutY="18.0" mnemonicParsing="false" text="Не размещенные" />
+        <Button fx:id="lateButton" layoutX="883.0" layoutY="18.0" mnemonicParsing="false" text="Опоздания" />
         <Button fx:id="returnButton" layoutX="1004.0" layoutY="18.0" mnemonicParsing="false" text="Назад" />
         <Button fx:id="azTwentyOneButton" layoutX="503.0" layoutY="52.0" mnemonicParsing="false" text="АЗ 2021" />
         <Button fx:id="azTwentyTwoButton" layoutX="433.0" layoutY="52.0" mnemonicParsing="false" text="АЗ 2022" />

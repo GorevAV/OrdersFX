@@ -93,7 +93,6 @@ public class StatisticsController {
     @FXML
     private TableColumn<Stats, Integer> notPostedStatsColumn;
 
-
     @FXML
     private TableColumn<PurchaseOrder, String> purchaseOrderLateColumn;
 

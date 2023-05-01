@@ -58,7 +58,7 @@ public class WriteExcelFileStatsPivot {
         for (int i = 0; i < HEADERS.size(); i++) {
             sheet.getRow(0).getCell(i).setCellStyle(style);
         }
-        for (int i = 1; i < sheet.getLastRowNum(); i++) {
+        for (int i = 1; i < sheet.getLastRowNum()+1; i++) {
             for (int j = 0; j < HEADERS.size(); j++) {
                 sheet.getRow(i).getCell(j).setCellStyle(style);
             }
